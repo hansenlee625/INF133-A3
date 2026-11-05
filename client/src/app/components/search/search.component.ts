@@ -25,6 +25,8 @@ export class SearchComponent implements OnInit {
 
   search() {
     //TODO: call search function in spotifyService and parse response
+    this.resources = null as any; //clear any existing resources first to prevent carousel overlap
+
     this.spotifyService.searchFor(this.searchCategory, this.searchString).then((results:ResourceData[]) => {
       this.resources = results;
       console.log(this.resources);
